@@ -167,7 +167,7 @@ def text_mode(cam):
 						word = "Yes, please tell me about it"
 					elif word == "email details":
 						word = "Please email me the details"
-					elif word == "thank younice":
+					elif word == "nicethank you":
 						word = "Thank you! Have a nice day"
 
 
