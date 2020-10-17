@@ -137,7 +137,8 @@ def text_mode(cam):
 		if len(contours) > 0:
 			contour = max(contours, key = cv2.contourArea)
 			if cv2.contourArea(contour) > 10000:
-				text = get_pred_from_contour(contour, thresh)
+				text1 = get_pred_from_contour(contour, thresh)
+				text = str(text1)
 				if old_text == text:
 					count_same_frame += 1
 				else:
@@ -157,18 +158,18 @@ def text_mode(cam):
 						word = "I need to ask for some help"
 					elif word == "credit carddue date":
 						word = "I need help with my credit card due"
-					elif word == "extend":
+					elif word == "extenddue date":
 						word = "Can you extend my due date?"
 					elif word == "emergencycovid 19":
 						word = " I have medical emergency regarding covid 19"
 					elif word == "thank you":
 						word = "Thank you very much!"
-					elif word == "yes":
+					elif word == "yesplease":
 						word = "Yes, please tell me about it"
-					elif word == "email details":
+					elif word == "pleaseemail details":
 						word = "Please email me the details"
-					elif word == "nicethank you":
-						word = "Thank you! Have a nice day"
+					elif word == "extend30days":
+						word = "Can you extend by 30 days please"
 
 
 					# elif word == "transfer":
@@ -233,7 +234,7 @@ def text_mode(cam):
 
 def recognize():
 	cam = cv2.VideoCapture(1)
-	if cam.read()[0]==False:
+	if cam.read()[0]==True:
 		cam = cv2.VideoCapture(0)
 	text = ""
 	word = ""
